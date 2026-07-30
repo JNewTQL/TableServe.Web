@@ -18,3 +18,8 @@
   border-radius: 0.25rem;
   margin: 0.2rem;
 }
+
+.card:has(.dropdown .show) {
+  z-index: 10;
+  position: relative;
+}
