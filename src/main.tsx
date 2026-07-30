@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import MenuItemsPage from "./menuItems/MenuItemsPage";
+import MenuItemsPage from "./menuitems/MenuItemsPage";
 import OrdersPage from "./orders/OrdersPage";
 import Layout from "./Layout";
 import ErrorPage from "./ErrorPage";
 import StaffPage from "./staff/StaffPage";
 import "./index.css";
-import MenuItemCreatePage from "./menuItems/MenuItemCreatePage";
-import MenuItemEditPage from "./menuItems/MenuItemEditPage";
+import MenuItemCreatePage from "./menuitems/MenuItemCreatePage";
+import MenuItemEditPage from "./menuitems/MenuItemEditPage";
 import StaffCreatePage from "./staff/StaffCreatePage";
 import StaffEditPage from "./staff/StaffEditPage";
+import OrderDetailPage from "./orders/OrderDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "menuitems/create", element: <MenuItemCreatePage /> },
       { path: "menuitems/edit/:id", element: <MenuItemEditPage /> },
       { path: "orders", element: <OrdersPage /> },
+      { path: "orders/detail/:id", element: <OrderDetailPage /> },
       { path: "staff", element: <StaffPage /> },
       { path: "staff/create", element: <StaffCreatePage /> },
       { path: "staff/edit/:id", element: <StaffEditPage /> },
