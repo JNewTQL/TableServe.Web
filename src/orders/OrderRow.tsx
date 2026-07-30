@@ -31,8 +31,8 @@ function OrderRow({ order, onRemove }: IOrderRowProps) {
       </td>
       <td>
         <Dropdown className="d-inline">
-          <Dropdown.Toggle className="btn btn-light" style={{ background: "none" }}>
-            <svg className="bi pe-none" width={20} height={20} fill="#007AFF">
+          <Dropdown.Toggle className="btn btn-light border-0" style={{ background: "none" }}>
+            <svg className="bi pe-none" width={20} height={20} fill="#ff9100">
               <use xlinkHref={`${bootstrapIcons}#three-dots-vertical`} />
             </svg>
           </Dropdown.Toggle>

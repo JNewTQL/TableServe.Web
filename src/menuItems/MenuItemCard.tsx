@@ -11,7 +11,7 @@ function MenuItemCard({ menuItem }: IMenuItemCardProps) {
   return (
     <div className="card p-4" style={{ width: "23rem" }}>
       <div className="d-flex justify-content-between align-items-start">
-        <span className="fs-4 fw-medium">{menuItem.name}</span>
+        <span className="fs-4 fw-bolder">{menuItem.name}</span>
 
         <Dropdown>
           <Dropdown.Toggle className="btn btn-light d-flex border-0" style={{ background: "none" }}>

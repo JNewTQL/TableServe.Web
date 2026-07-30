@@ -4,6 +4,7 @@ import type { IMenuItem } from "./IMenuItem";
 import { menuItemAPI } from "./MenuItemAPI";
 import MenuItemCardSkeleton from "./MenuitemCardSkeleton";
 import { Link } from "react-router-dom";
+import bootstrapIcons from "../assets/bootstrap-icons.svg";
 
 function MenuItemsPage() {
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,10 @@ function MenuItemsPage() {
     <section className="content container-fluid mx-5 my-2 py-4">
       <div className="d-flex justify-content-between pb-4 mb-4 border-bottom border-2">
         <h2>Menu</h2>
-        <Link to="/menuitems/create" className="btn fs-5 btn-primary">
+        <Link to="/menuitems/create" className="btn fs-6 btn-primary">
+          <svg className="bi pe-none me-2" width={32} height={32} fill="#FFFFFF">
+            <use xlinkHref={`${bootstrapIcons}#plus`} />
+          </svg>
           Add Item
         </Link>
       </div>{" "}

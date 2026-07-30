@@ -39,12 +39,12 @@ function StaffCard({ staff, onRemove }: IStaffCardProps) {
         </Dropdown.Menu>
       </Dropdown>
 
-      <span className="fs-4 fw-medium">
+      <span className="fs-4 fw-bolder">
         {staff.firstName} {staff.lastName}
       </span>
-      <span className="fs-5 fw-light">{staff.username}</span>
-      <span className="fs-5 fw-light">{formatPhoneNumber(staff.phone)}</span>
-      <span className="fs-5 fw-light">{staff.email}</span>
+      <span className="fs-6 fw-light">{staff.username}</span>
+      <span className="fs-6 fw-light">{formatPhoneNumber(staff.phone)}</span>
+      <span className="fs-6 fw-light">{staff.email}</span>
 
       <div>
         {staff.isManager && <span className="badge text-bg-primary mt-1">Manager</span>} {staff.isAdmin && <span className="badge text-bg-dark mt-1">Admin</span>}

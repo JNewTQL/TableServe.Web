@@ -41,7 +41,7 @@ function CategoryCard({ category, onRemove }: ICategoryCardProps) {
         </Dropdown.Menu>
       </Dropdown>
 
-      <span className="fs-4 fw-medium">{category.name}</span>
+      <span className="fs-4 fw-bolder">{category.name}</span>
       <span className="fs-5 fw-light">{category.sortOrder}</span>
     </div>
   );
