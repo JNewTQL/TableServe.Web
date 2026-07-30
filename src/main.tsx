@@ -12,6 +12,7 @@ import MenuItemEditPage from "./menuitems/MenuItemEditPage";
 import StaffCreatePage from "./staff/StaffCreatePage";
 import StaffEditPage from "./staff/StaffEditPage";
 import OrderDetailPage from "./orders/OrderDetailPage";
+import CategoryDetailPage from "./categories/CategoryDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "menuitems/edit/:id", element: <MenuItemEditPage /> },
       { path: "orders", element: <OrdersPage /> },
       { path: "orders/detail/:id", element: <OrderDetailPage /> },
+      { path: "categories/detail/:id", element: <CategoryDetailPage /> },
       { path: "staff", element: <StaffPage /> },
       { path: "staff/create", element: <StaffCreatePage /> },
       { path: "staff/edit/:id", element: <StaffEditPage /> },
