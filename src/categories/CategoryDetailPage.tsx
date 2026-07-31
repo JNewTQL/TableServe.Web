@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { ICategory } from "./ICategory";
 import { categoryAPI } from "./CategoryAPI";
-import bootstrapIcons from "../assets/bootstrap-icons.svg";
 
 function CategoryDetailPage() {
   const { id } = useParams<{ id: string }>();
