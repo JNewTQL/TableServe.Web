@@ -4,6 +4,7 @@ import { categoryAPI } from "./CategoryAPI";
 import type { ICategory } from "./ICategory";
 
 const emptyCategory: ICategory = {
+  id: undefined,
   name: "",
   sortOrder: 0,
 };
