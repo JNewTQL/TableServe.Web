@@ -41,7 +41,7 @@ function CategoryForm() {
         <label htmlFor="name" className="form-label">
           Name
         </label>
-        <input id="name" type="text" className={`form-control ${errors.name ? "is-invalid" : ""}`} {...register("name", { required: "Name is absolutely required bestie!" })} />
+        <input id="name" type="text" className={`form-control ${errors.name ? "is-invalid" : ""}`} {...register("name", { required: "Name is required." })} />
         <div className="invalid-feedback">{errors.name?.message}</div>
       </div>
 
