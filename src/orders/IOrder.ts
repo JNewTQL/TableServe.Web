@@ -1,6 +1,7 @@
 import { IStaff } from "../staff/IStaff";
 
 export interface IOrder {
+  menuItem: any;
   id: number | undefined;
   tableNumber: number | undefined;
   notes: string | undefined;
@@ -10,4 +11,5 @@ export interface IOrder {
   staffId: number | undefined;
   staff?: IStaff;
   cancellationReason?: string;
+  orderItems: IOrder[];
 }
