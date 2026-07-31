@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import MenuItemsPage from "./menuitems/MenuItemsPage";
+import MenuItemsPage from "./menuItems/MenuItemsPage";
 import OrdersPage from "./orders/OrdersPage";
 import Layout from "./Layout";
 import ErrorPage from "./ErrorPage";
 import StaffPage from "./staff/StaffPage";
 import "./index.css";
-import MenuItemCreatePage from "./menuitems/MenuItemCreatePage";
-import MenuItemEditPage from "./menuitems/MenuItemEditPage";
+import MenuItemCreatePage from "./menuItems/MenuItemCreatePage";
+import MenuItemEditPage from "./menuItems/MenuItemEditPage";
 import StaffCreatePage from "./staff/StaffCreatePage";
 import StaffEditPage from "./staff/StaffEditPage";
 import OrderDetailPage from "./orders/OrderDetailPage";

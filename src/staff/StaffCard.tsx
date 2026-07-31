@@ -10,6 +10,18 @@ interface IStaffCardProps {
   onRemove: (staff: IStaff) => void;
 }
 
+const getRoleLabel = (staff: IStaff) => {
+  if (staff.isAdmin) {
+    return <span className="badge text-bg-dark mt-1">Admin</span>;
+  }
+
+  if (staff.isManager) {
+    return <span className="badge text-bg-primary mt-1">Manager</span>;
+  }
+
+  return <span className="text-muted fst-italic small mt-1">no role assigned</span>;
+};
+
 function StaffCard({ staff, onRemove }: IStaffCardProps) {
   return (
     <div className="card p-4" style={{ width: "23rem" }}>
@@ -38,17 +50,14 @@ function StaffCard({ staff, onRemove }: IStaffCardProps) {
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-
       <span className="fs-4 fw-bolder">
         {staff.firstName} {staff.lastName}
       </span>
       <span className="fs-6 fw-light">{staff.username}</span>
-      <span className="fs-6 fw-light">{formatPhoneNumber(staff.phone)}</span>
-      <span className="fs-6 fw-light">{staff.email}</span>
+      <span className="fs-6 fw-light">{formatPhoneNumber(staff.phone) || "—"}</span>
+      <span className="fs-6 fw-light">{staff.email || "—"}</span>
 
-      <div>
-        {staff.isManager && <span className="badge text-bg-primary mt-1">Manager</span>} {staff.isAdmin && <span className="badge text-bg-dark mt-1">Admin</span>}
-      </div>
+      <div>{getRoleLabel(staff)}</div>
     </div>
   );
 }

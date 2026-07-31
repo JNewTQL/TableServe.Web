@@ -27,7 +27,7 @@ function OrdersPage() {
 
   return (
     <section className="content container-fluid mx-5 my-2 py-4">
-      <h2 className="pb-4 mb-4 border-bottom border-2">Orders</h2>
+      <h2 className="pb-4 mb-4 border-bottom border-2">Orders ({orders.length})</h2>
       <section className="list bg-body-tertiary p-4 rounded-4">
         <select id="status" className="form-select w-auto mb-3" value={searchParams.get("status") ?? ""} onChange={handleStatusChange}>
           <option value="">All</option>

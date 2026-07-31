@@ -57,6 +57,25 @@ main {
   --bs-btn-focus-shadow-rgb: 255, 122, 0;
 }
 
+.btn-outline-primary {
+  /* Normal state */
+  --bs-btn-border-color: #ff7a00;
+  --bs-btn-color: #ff7a00; /* Text color */
+
+  /* Hover state */
+  --bs-btn-hover-bg: #ff7a00; /* Slightly darker orange */
+  --bs-btn-hover-border-color: #cc6200;
+  --bs-btn-hover-color: #ffffff;
+
+  /* Active / Pressed state */
+  --bs-btn-active-bg: #b35300;
+  --bs-btn-active-border-color: #b35300;
+  --bs-btn-active-color: #fff;
+
+  /* Focus / Keyboard navigation state */
+  --bs-btn-focus-shadow-rgb: 255, 122, 0;
+}
+
 /* If using Bootstrap's contextual background class on a badge */
 .badge.bg-primary {
   background-color: #ff7a00 !important;

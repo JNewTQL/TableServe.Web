@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { ICategory } from "./ICategory";
 import { categoryAPI } from "./CategoryAPI";
+import bootstrapIcons from "../assets/bootstrap-icons.svg";
 
 function CategoryDetailPage() {
   const { id } = useParams<{ id: string }>();
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState<ICategory | undefined>(undefined);
+  const navigate = useNavigate();
 
   async function loadCategory() {
     setLoading(true);
@@ -27,7 +29,12 @@ function CategoryDetailPage() {
   return (
     <section className="content container-fluid mx-5 my-2 py-4">
       <div className="d-flex justify-content-between pb-4 mb-4 border-bottom border-2">
-        <h2>Category</h2>
+        <span>
+          <h2>Category</h2>
+        </span>
+        <button type="button" onClick={() => navigate("/categories")} className="btn fs-6 btn-outline-primary">
+          Back to Categories
+        </button>
       </div>
 
       {loading && <p>Loading…</p>}
