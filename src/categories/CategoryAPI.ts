@@ -12,4 +12,18 @@ export const categoryAPI = {
   delete(id: number) {
     return fetch(`${url}/${id}`, { method: "DELETE" });
   },
+  post(category: ICategory): Promise<ICategory> {
+    return fetch(url, {
+      method: "POST",
+      body: JSON.stringify(category),
+      headers: { "Content-Type": "application/json" },
+    }).then((response) => response.json());
+  },
+  put(category: ICategory): Promise<ICategory> {
+    return fetch(`${url}/${category.id}`, {
+      method: "PUT",
+      body: JSON.stringify(category),
+      headers: { "Content-Type": "application/json" },
+    }).then((response) => response.json());
+  },
 };

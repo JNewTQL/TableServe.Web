@@ -18,7 +18,10 @@ function CategoryPage() {
     setLoading(true);
     try {
       const data = await categoryAPI.list();
-      setCategories(data);
+
+      const sortedData = data.sort((a, b) => a.sortOrder - b.sortOrder);
+
+      setCategories(sortedData);
     } catch (error: any) {
       console.error(error);
     } finally {

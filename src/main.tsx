@@ -16,6 +16,8 @@ import CategoryDetailPage from "./categories/CategoryDetailPage";
 import CategoryPage from "./categories/CategoriesPage";
 import OrderItemCreatePage from "./orderItems/OrderItemCreatePage";
 import OrderItemEditPage from "./orderItems/OrderItemEditPage";
+import CategoryCreatePage from "./categories/CategoryCreatePage";
+import CategoryEditPage from "./categories/CategoryEditPage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,8 @@ const router = createBrowserRouter([
       { path: "orders/detail/:id/orderitem/edit/:itemId", element: <OrderItemEditPage /> },
       { path: "categories", element: <CategoryPage /> },
       { path: "categories/detail/:id", element: <CategoryDetailPage /> },
+      { path: "categories/create", element: <CategoryCreatePage /> },
+      { path: "categories/edit/:id", element: <CategoryEditPage /> },
       { path: "staff", element: <StaffPage /> },
       { path: "staff/create", element: <StaffCreatePage /> },
       { path: "staff/edit/:id", element: <StaffEditPage /> },
