@@ -1,8 +1,9 @@
 import { useEffect, useState, SyntheticEvent } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { IOrder } from "./IOrder";
 import { orderAPI } from "./OrderAPI";
 import OrderRow from "./OrderRow";
+import bootstrapIcons from "../assets/bootstrap-icons.svg";
 
 function OrdersPage() {
   const [orders, setOrders] = useState<IOrder[]>([]);
@@ -27,7 +28,15 @@ function OrdersPage() {
 
   return (
     <section className="content container-fluid mx-5 my-2 py-4">
-      <h2 className="pb-4 mb-4 border-bottom border-2">Orders ({orders.length})</h2>
+      <div className="d-flex justify-content-between align-items-center pb-4 mb-4 border-bottom border-2">
+        <h2 className="border-2">Orders ({orders.length})</h2>
+        <Link to="/orders/create" className="btn btn-primary">
+          <svg className="bi pe-none me-2" width={20} height={20} fill="#FFFFFF">
+            <use xlinkHref={`${bootstrapIcons}#plus`} />
+          </svg>
+          Add Order
+        </Link>
+      </div>
       <section className="list bg-body-tertiary p-4 rounded-4">
         <select id="status" className="form-select w-auto mb-3" value={searchParams.get("status") ?? ""} onChange={handleStatusChange}>
           <option value="">All</option>

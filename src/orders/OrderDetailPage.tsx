@@ -10,6 +10,7 @@ import { money } from "../utility/formatUtilities";
 import { IOrderItem } from "../orderItems/IOrderItem";
 import { orderItemAPI } from "../orderItems/OrderItemAPI";
 import { useStaffContext } from "../App";
+import bootstrapIcons from "../assets/bootstrap-icons.svg";
 
 interface ICancelForm {
   cancellationReason: string | undefined;
@@ -165,6 +166,15 @@ function OrderDetailPage() {
       <div className="d-flex justify-content-between pb-4 mb-4 border-bottom border-2">
         <h2>Order</h2>
         <div className="d-flex justify-content-end gap-2">
+          {/* ✨ We dropped the Edit button right here so it's always the first button on the left! */}
+          {order && (
+            <Link to={`/orders/edit/${order.id}`} className="btn">
+              <svg className="me-2" width={16} height={16}>
+                <use xlinkHref={`${bootstrapIcons}#pencil`} />
+              </svg>
+            </Link>
+          )}
+
           {order?.status === "PLACED" && (
             <button className="btn btn-primary" onClick={startPreparing}>
               Start Preparing

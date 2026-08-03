@@ -21,6 +21,8 @@ import CategoryEditPage from "./categories/CategoryEditPage";
 import SignInPage from "./account/SignInPage";
 import IndexPage from "./IndexPage";
 import App from "./App";
+import OrderCreatePage from "./orders/OrderCreatePage";
+import OrderEditPage from "./orders/OrderEditPage";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,8 @@ const router = createBrowserRouter([
           { path: "menuitems/create", element: <MenuItemCreatePage /> },
           { path: "menuitems/edit/:id", element: <MenuItemEditPage /> },
           { path: "orders", element: <OrdersPage /> },
+          { path: "orders/create", element: <OrderCreatePage /> },
+          { path: "orders/edit/:id", element: <OrderEditPage /> },
           { path: "orders/detail/:id", element: <OrderDetailPage /> },
           { path: "orders/detail/:id/orderitem/create", element: <OrderItemCreatePage /> },
           { path: "orders/detail/:id/orderitem/edit/:itemId", element: <OrderItemEditPage /> },
