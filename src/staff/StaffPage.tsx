@@ -5,6 +5,7 @@ import { staffAPI } from "./StaffAPI";
 import StaffCard from "./StaffCard";
 import StaffCardSkeleton from "./StaffCardSkeleton";
 import bootstrapIcons from "../assets/bootstrap-icons.svg";
+import toast from "react-hot-toast";
 
 function StaffPage() {
   const [loading, setLoading] = useState(false);
@@ -20,7 +21,7 @@ function StaffPage() {
       const data = await staffAPI.list();
       setStaff(data);
     } catch (error: any) {
-      console.error(error);
+      toast.error(error.message, { duration: 6000 });
     } finally {
       setLoading(false);
     }

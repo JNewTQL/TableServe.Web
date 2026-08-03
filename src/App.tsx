@@ -28,7 +28,12 @@ function App() {
   const [staff, setStaff] = useState<IStaff | undefined>(getPersistedStaff());
   return (
     <StaffContext.Provider value={{ staff, setStaff }}>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          success: { iconTheme: { primary: "#FF7A00", secondary: "white" } },
+          style: { maxWidth: 500 },
+        }}
+      />
       <Outlet />
     </StaffContext.Provider>
   );

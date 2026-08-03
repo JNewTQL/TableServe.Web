@@ -4,6 +4,7 @@ import type { IStaff } from "./IStaff";
 import bootstrapIcons from "../assets/bootstrap-icons.svg";
 import { staffAPI } from "./StaffAPI";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 interface IStaffCardProps {
   staff: IStaff;
@@ -41,8 +42,13 @@ function StaffCard({ staff, onRemove }: IStaffCardProps) {
             onClick={async (event) => {
               event.preventDefault();
               if (confirm("Delete this staff member?") && staff.id) {
-                await staffAPI.delete(staff.id);
-                onRemove(staff);
+                try {
+                  await staffAPI.delete(staff.id);
+                  onRemove(staff);
+                  toast.success("Successfully deleted.");
+                } catch (error: any) {
+                  toast.error(error.message);
+                }
               }
             }}
           >
