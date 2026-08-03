@@ -9,12 +9,14 @@ import { Modal } from "react-bootstrap";
 import { money } from "../utility/formatUtilities";
 import { IOrderItem } from "../orderItems/IOrderItem";
 import { orderItemAPI } from "../orderItems/OrderItemAPI";
+import { useStaffContext } from "../App";
 
 interface ICancelForm {
   cancellationReason: string | undefined;
 }
 
 function OrderDetailPage() {
+  const { staff } = useStaffContext(); // the signed-in user
   const { id } = useParams<{ id: string }>();
   const [loading, setLoading] = useState(false);
   const [order, setOrder] = useState<IOrder | undefined>(undefined);
@@ -110,6 +112,9 @@ function OrderDetailPage() {
     loadOrder();
   }, []);
 
+  const isOwnOrder = order?.staffId === staff?.id;
+  const canCancel = isOwnOrder || staff?.isManager;
+
   return (
     <section className="content container-fluid mx-5 my-2 py-4">
       <Modal show={isCancelOpen} onHide={closeCancel}>
@@ -131,7 +136,7 @@ function OrderDetailPage() {
               <div className="invalid-feedback">{errors?.cancellationReason?.message}</div>
             </div>
             <div className="d-flex justify-content-end gap-2">
-              <button type="button" className="btn btn-outline-primary" onClick={closeCancel}>
+              <button type="button" className="btn btn-outline-primary" onClick={closeCancel} disabled={!canCancel}>
                 Cancel
               </button>
               <button type="submit" className="btn btn-primary">
