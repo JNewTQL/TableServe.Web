@@ -4,6 +4,7 @@ import bootstrapIcons from "../assets/bootstrap-icons.svg";
 import { orderAPI } from "./OrderAPI";
 import { IOrder } from "./IOrder";
 import { getTextBackgroundByStatus } from "../utility/formatUtilities";
+import toast from "react-hot-toast";
 
 interface IOrderRowProps {
   order: IOrder;
@@ -45,16 +46,18 @@ function OrderRow({ order, onRemove }: IOrderRowProps) {
             <Dropdown.Item as={Link} to={`/orders/edit/${order.id}`}>
               Edit
             </Dropdown.Item>
-
             <Dropdown.Item
               as="a"
               href="#"
               onClick={async (event) => {
                 event.preventDefault();
-                if (confirm("Are you sure you want to delete this order?")) {
-                  if (order.id) {
+                if (confirm("Delete this staff member?") && order.id) {
+                  try {
                     await orderAPI.delete(order.id);
-                    onRemove(order); // tell the parent to drop the row
+                    onRemove(order);
+                    toast.success("Successfully deleted.");
+                  } catch (error: any) {
+                    toast.error(error.message);
                   }
                 }
               }}

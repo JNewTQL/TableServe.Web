@@ -5,6 +5,7 @@ import { categoryAPI } from "./CategoryAPI";
 import CategoryCard from "./CategoryCard";
 import CategoryCardSkeleton from "./CategoryCardSkeleton";
 import bootstrapIcons from "../assets/bootstrap-icons.svg";
+import toast from "react-hot-toast";
 
 function CategoryPage() {
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ function CategoryPage() {
 
       setCategories(sortedData);
     } catch (error: any) {
-      console.error(error);
+      toast.error(error.message, { duration: 6000 });
     } finally {
       setLoading(false);
     }

@@ -3,6 +3,7 @@ import type { ICategory } from "./ICategory";
 import bootstrapIcons from "../assets/bootstrap-icons.svg";
 import { categoryAPI } from "./CategoryAPI";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 interface ICategoryCardProps {
   category: ICategory;
@@ -30,9 +31,14 @@ function CategoryCard({ category, onRemove }: ICategoryCardProps) {
             href="#"
             onClick={async (event) => {
               event.preventDefault();
-              if (confirm("Delete this category?") && category.id) {
-                await categoryAPI.delete(category.id);
-                onRemove(category);
+              if (confirm("Delete this staff member?") && category.id) {
+                try {
+                  await categoryAPI.delete(category.id);
+                  onRemove(category);
+                  toast.success("Successfully deleted.");
+                } catch (error: any) {
+                  toast.error(error.message);
+                }
               }
             }}
           >

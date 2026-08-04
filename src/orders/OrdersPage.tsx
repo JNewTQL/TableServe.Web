@@ -4,14 +4,23 @@ import { IOrder } from "./IOrder";
 import { orderAPI } from "./OrderAPI";
 import OrderRow from "./OrderRow";
 import bootstrapIcons from "../assets/bootstrap-icons.svg";
+import toast from "react-hot-toast";
 
 function OrdersPage() {
+  const [loading, setLoading] = useState(false);
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   async function loadOrders() {
-    const data = await orderAPI.list(searchParams.get("status") ?? undefined);
-    setOrders(data);
+    setLoading(true);
+    try {
+      const data = await orderAPI.list(searchParams.get("status") ?? undefined);
+      setOrders(data);
+    } catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   function removeOrder(order: IOrder) {
